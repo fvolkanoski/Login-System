@@ -1,4 +1,7 @@
 <?php
+// TODO: Not implemented, needs to be fully done before
+//       it is implemented into the system.
+
 // Initialize the session
 session_start();
  
