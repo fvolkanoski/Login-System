@@ -2,12 +2,12 @@
 // Set the MySQL database information here.
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '123456789');
-define('DB_NAME', 'login-system');
- 
+define('DB_PASSWORD', 'test');
+define('DB_NAME', 'login_system');
+
 // Connect to the MySQL database.
 $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
- 
+
 // If there is an error connecting to the MySQL database, display an error.
 if($link === false)
 {
