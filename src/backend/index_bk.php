@@ -81,11 +81,41 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
 
+                            // Record the login attempt.
+                            $loginSuccess = 1;
+                            $logSql = "INSERT INTO login_logs (user_id, login_success) VALUES (?, ?)";
+                            if($logStmt = mysqli_prepare($link, $logSql))
+                            {
+                                // Bind variables to the prepared statement as parameters.
+                                mysqli_stmt_bind_param($logStmt, "ii", $id, $loginSuccess);
+
+                                // Attempt to execute the prepared statement.
+                                mysqli_stmt_execute($logStmt);
+
+                                // Close statement.
+                                mysqli_stmt_close($logStmt);
+                            }
+
                             // Redirect user to welcome page.
                             header("location: welcome.php");
                         }
                         else
                         {
+                            // Record the login attempt.
+                            $loginSuccess = 0;
+                            $logSql = "INSERT INTO login_logs (user_id, login_success) VALUES (?, ?)";
+                            if($logStmt = mysqli_prepare($link, $logSql))
+                            {
+                                // Bind variables to the prepared statement as parameters.
+                                mysqli_stmt_bind_param($logStmt, "ii", $id, $loginSuccess);
+
+                                // Attempt to execute the prepared statement.
+                                mysqli_stmt_execute($logStmt)
+
+                                // Close statement.
+                                mysqli_stmt_close($logStmt);
+                            }
+
                             // Display an error message if password is not valid.
                             $password_err = "The password you entered was not valid.";
                         }
