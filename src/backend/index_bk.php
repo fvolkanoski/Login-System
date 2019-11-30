@@ -110,7 +110,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                                 mysqli_stmt_bind_param($logStmt, "ii", $id, $loginSuccess);
 
                                 // Attempt to execute the prepared statement.
-                                mysqli_stmt_execute($logStmt)
+                                mysqli_stmt_execute($logStmt);
 
                                 // Close statement.
                                 mysqli_stmt_close($logStmt);

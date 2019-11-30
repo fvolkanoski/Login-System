@@ -21,6 +21,16 @@
       <img src="img/logo.png" style="margin-bottom: 25px; width: 40%; height: 40%"/>
     </center>
     <form action="register.php" method="post">
+      <div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
+        <label>Name</label>
+        <input type="text" name="name" class="form-control" value="<?php echo $name; ?>">
+        <span class="help-block"><?php echo $name_err; ?></span>
+      </div>
+      <div class="form-group <?php echo (!empty($surname_err)) ? 'has-error' : ''; ?>">
+        <label>Surname</label>
+        <input type="text" name="username" class="form-control" value="<?php echo $surname; ?>">
+        <span class="help-block"><?php echo $surname_err; ?></span>
+      </div>
       <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
         <label>Username</label>
         <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
