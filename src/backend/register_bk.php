@@ -21,6 +21,44 @@ $name_err = $surname_err = $username_err = $password_err = $confirm_password_err
 // Processing form data when form is submitted.
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
+    // Validate name input.
+    if(empty(trim($_POST["name"])))
+    {
+        $name_err = "Please input your name.";
+    }
+    else
+    {
+        if( !(strlen(trim($_POST["name"])) > 2 && strlen(trim($_POST["name"])) < 254) )
+        {
+            $name_err = "Your name must be between 2 and 254 characters long.";
+        }
+        else if(!ctype_alnum(trim($_POST["name"])))
+        {
+            $name_err = "Your name must contain only letters.";
+        }
+
+        $name = trim($_POST["name"]);
+    }
+
+    // Validate surname input.
+    if(empty(trim($_POST["surname"])))
+    {
+        $surname_err = "Please input your surname.";
+    }
+    else
+    {
+        if( !(strlen(trim($_POST["surname"])) > 2 && strlen(trim($_POST["surname"])) < 254) )
+        {
+            $surname_err = "Your surname must be between 2 and 254 characters long.";
+        }
+        else if(!ctype_alnum(trim($_POST["surname"])))
+        {
+            $surname_err = "Your surname must contain only letters.";
+        }
+
+        $surname = trim($_POST["surname"]);
+    }
+
     // Validate username.
     if(empty(trim($_POST["username"])))
     {
@@ -94,18 +132,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         }
     }
 
+    $noError = empty($name_err) && empty($surname_err) && empty($username_err) &&
+               empty($password_err) && empty($confirm_password_err);
+
     // Check input errors before inserting in database.
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
+    if($noError)
     {
         // Prepare an insert statement.
-        $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+        $sql = "INSERT INTO users (name, surname, username, password) VALUES (?, ?, ?, ?)";
 
         if($stmt = mysqli_prepare($link, $sql))
         {
             // Bind variables to the prepared statement as parameters.
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
+            mysqli_stmt_bind_param($stmt, "ssss", $param_name, $param_surname, $param_username, $param_password);
 
             // Set parameters.
+            $param_name = $name;
+            $param_surname = $surname;
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash.
 

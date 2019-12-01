@@ -1,4 +1,4 @@
-<?php include_once "backend/index_bk.php"; ?>
+<?php include_once "backend/index_bk.php"?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +18,7 @@
 <body>
   <div class="login_wrapper">
     <center>
-      <img src="img/logo.png" style="margin-bottom: 25px; width: 40%; height: 40%"/>
+      <img src="img/logo.png" style="margin-bottom: 25px; width: 90%; height: 90%"/>
     </center>
     <form action="index.php" method="post">
       <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">

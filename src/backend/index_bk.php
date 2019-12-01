@@ -47,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     if(empty($username_err) && empty($password_err))
     {
         // Prepare a select statement.
-        $sql = "SELECT id, username, password FROM users WHERE username = ?";
+        $sql = "SELECT id, name, surname, username, password FROM users WHERE username = ?";
 
         if($stmt = mysqli_prepare($link, $sql))
         {
@@ -67,7 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 if(mysqli_stmt_num_rows($stmt) == 1)
                 {
                     // Bind result variables.
-                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $id, $name, $surname, $username, $hashed_password);
 
                     if(mysqli_stmt_fetch($stmt))
                     {
@@ -79,8 +79,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                             // Store data in session variables.
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
+                            $_SESSION["name"] = $name;
+                            $_SESSION["surname"] = $surname;
                             $_SESSION["username"] = $username;
-
+                            
                             // Record the login attempt.
                             $loginSuccess = 1;
                             $logSql = "INSERT INTO login_logs (user_id, login_success) VALUES (?, ?)";
