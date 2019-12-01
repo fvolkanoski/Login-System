@@ -1,4 +1,4 @@
-<?php include_once "backend/welcome_bk.php" ?>
+<?php include_once "backend/profile_bk.php" ?>
 
   <!DOCTYPE html>
   <html lang="en">
@@ -28,8 +28,8 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="profile.php">My Profile</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li class="active"><a href="profile.php">My Profile</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="logout.php">Logout</a></li>
@@ -54,39 +54,7 @@
         </div>
         <!-- PROFILE SIDEBAR LEFT#END -->
 
-        <div class="col-sm-7">
-
-          <!-- FULL WIDTH CENTER CONTAINER -->
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="panel panel-default text-left">
-                <div class="panel-body">
-                  <p>
-                    <center>full width container</center>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- FULL WIDTH CENTER CONTAINER#END -->
-
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="well">
-                <table style="width:100%">
-                  <tr>
-                    <td style="width: 30%;">
-                      <img src="img/default_user.png" class="img-circle" height="55" width="55" alt="Avatar">
-                    </td>
-                    <td>This is a post container.</td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-2 well">
+        <div class="col-sm-9 well">
           right sidebar
         </div>
       </div>
