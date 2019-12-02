@@ -18,7 +18,8 @@
 <body>
   <div class="register_wrapper">
     <center>
-      <img src="img/logo.png" style="margin-bottom: 25px; width: 40%; height: 40%"/>
+      <p class="h4">Register</p>
+      <hr />
     </center>
     <form action="register.php" method="post">
       <div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
