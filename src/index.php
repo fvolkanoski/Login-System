@@ -18,7 +18,8 @@
 <body>
   <div class="login_wrapper">
     <center>
-      <img src="img/logo.png" style="margin-bottom: 25px; width: 80%; height: 80%"/>
+      <p class="h4">Login</p>
+      <hr />
     </center>
     <form action="index.php" method="post">
       <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
