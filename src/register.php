@@ -32,6 +32,11 @@
         <input type="text" name="surname" class="form-control" value="<?php echo $surname; ?>">
         <span class="help-block register_error"><?php echo $surname_err; ?></span>
       </div>
+      <div class="form-group <?php echo (!empty($birthday_err)) ? 'has-error' : ''; ?>">
+        <label>Birthday</label>
+        <input type="date" name="birthday" class="form-control" value="<?php echo $birthday; ?>">
+        <span class="help-block register_error"><?php echo $birthday_err; ?></span>
+      </div>
       <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
         <label>Username</label>
         <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">

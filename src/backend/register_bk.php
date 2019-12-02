@@ -16,11 +16,13 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"])
 
 // Define variables and initialize with empty values.
 $name = $surname = $username = $password = $confirm_password = "";
-$name_err = $surname_err = $username_err = $password_err = $confirm_password_err = "";
+$name_err = $surname_err = $birthday_err = $username_err = $password_err = $confirm_password_err = "";
 
 // Processing form data when form is submitted.
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
+    $birthday = trim($_POST["birthday"]);
+
     // Validate name input.
     if(empty(trim($_POST["name"])))
     {
@@ -57,6 +59,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         }
 
         $surname = trim($_POST["surname"]);
+    }
+
+    // Validate birthday input.
+    if(empty(trim($_POST["birthday"])))
+    {
+        $birthday_err = "Please input your birthday.";
     }
 
     // Validate username.
@@ -132,23 +140,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         }
     }
 
-    $noError = empty($name_err) && empty($surname_err) && empty($username_err) &&
-               empty($password_err) && empty($confirm_password_err);
+    $noError = empty($name_err) && empty($surname_err) && empty($birthday_err) &&
+               empty($username_err) && empty($password_err) && empty($confirm_password_err);
 
     // Check input errors before inserting in database.
     if($noError)
     {
         // Prepare an insert statement.
-        $sql = "INSERT INTO users (name, surname, username, password) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO users (name, surname, birthday, username, password) VALUES (?, ?, ?, ?, ?)";
 
         if($stmt = mysqli_prepare($link, $sql))
         {
             // Bind variables to the prepared statement as parameters.
-            mysqli_stmt_bind_param($stmt, "ssss", $param_name, $param_surname, $param_username, $param_password);
+            mysqli_stmt_bind_param($stmt, "sssss", $param_name, $param_surname,
+                                                   $param_birthday, $param_username, $param_password);
 
             // Set parameters.
             $param_name = $name;
             $param_surname = $surname;
+            $param_birthday = $birthday;
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash.
 
