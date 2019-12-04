@@ -2,7 +2,7 @@
 // Set the MySQL database information here.
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'test');
+define('DB_PASSWORD', '');
 define('DB_NAME', 'login_system');
 
 // Connect to the MySQL database.
