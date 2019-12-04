@@ -38,7 +38,7 @@
       </div>
     </nav>
     <!-- NAVBAR#END -->
-
+      
     <!-- PROFILE SIDEBAR LEFT -->
     <div class="container text-center" style="font-family: 'Roboto', sans-serif; font-size: 10pt;">
       <div class="row">
@@ -46,10 +46,12 @@
           <div class="well">
             <a href="profile.php">
               <p>
-                <?php echo $_SESSION["name"]." ".$_SESSION["surname"]; ?>
+                <?php echo $profileName.' '.$profileSurname; ?>
               </p>
             </a>
             <img src="img/default_user.png" class="img-circle" height="55" width="55" alt="Avatar">
+            <p style="margin-top: 15px;">Age: <?php echo $profileBirthday; // TODO: Calculate age. ?></p>
+            <p>Joined: <?php echo $profileCreated; ?></p>
           </div>
         </div>
         <!-- PROFILE SIDEBAR LEFT#END -->

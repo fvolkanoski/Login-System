@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.php">Home</a></li>
-            <li><a href="profile.php">My Profile</a></li>
+            <li><a href="profile.php?id=<?php echo $_SESSION["id"]; ?>">My Profile</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="logout.php">Logout</a></li>
