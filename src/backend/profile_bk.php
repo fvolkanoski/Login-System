@@ -47,7 +47,13 @@ if (isset($_GET['id']))
                     $profileId = $id;
                     $profileName = $name;
                     $profileSurname = $surname;
-                    $profileBirthday = $birthday;
+                    
+                    // Calculate age.
+                    $date = new DateTime($birthday);
+                    $now = new DateTime();
+                    $interval = $now->diff($date);
+                    
+                    $profileBirthday = $interval->y;
                     $profileUsername = $username;
                     $profileCreated = date('Y', strtotime($created_at));
                 }
