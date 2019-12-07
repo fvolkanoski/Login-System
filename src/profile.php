@@ -7,6 +7,7 @@
     </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style/profile.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
@@ -51,6 +52,7 @@
       </div>
     </nav>
     <!-- NAVBAR#END -->
+
     <!-- PROFILE SIDEBAR LEFT -->
     <div class="container text-center" style="font-family: 'Roboto', sans-serif; font-size: 10pt;">
       <div class="row">
@@ -61,22 +63,33 @@
                 <?php echo $profileName.' '.$profileSurname; ?>
               </p>
             </a>
-            <img src="img/default_user.png" class="img-circle" height="55" width="55" alt="Avatar">
-            <p style="margin-top: 15px;">Age: 
+            <img src="<?php echo $_SESSION["avatar_path"]; ?>" height="200" width="200" alt="Avatar">
+            <p style="margin-top: 15px;">Age:
               <?php echo $profileBirthday; // TODO: Calculate age. ?>
             </p>
-            <p>Joined: 
+            <p>Joined:
               <?php echo $profileCreated; ?>
             </p>
+
+            <?php
+
+              if($_SESSION["id"] == $idReq) // Check if the user is seeing his own profile.
+              {
+                  echo '<p><hr></p>';
+                  echo '<p><a href="editprofile.php">Edit your profile</a></p>';
+              }
+
+            ?>
+
           </div>
         </div>
         <!-- PROFILE SIDEBAR LEFT#END -->
-          
+
         <?php
             // Prepare a select statement.
             $sql = "SELECT id, user_id, post, created_at FROM user_posts WHERE user_id = ?";
-          
-            if ($stmt = mysqli_prepare($link, $sql)) 
+
+            if ($stmt = mysqli_prepare($link, $sql))
             {
                 // Bind variables to the prepared statement as parameters.
                 mysqli_stmt_bind_param($stmt, "i", $profileId);
@@ -84,16 +97,16 @@
                 $stmt->bind_result($id, $user_id, $post, $created_at);
 
                 $postNr = 0;
-                
+
                 // Fetch the result variables.
-                while ($stmt->fetch()) 
+                while ($stmt->fetch())
                 {
                     $postId        = $id;
                     $postUserId    = $user_id;
                     $postText      = $post;
                     $postCreatedAt = $created_at;
 
-                    if($postNr > 1)
+                    if($postNr > 2)
                     {
                         echo '<div class="col-md-8 col-md-offset-4">';
                     }
@@ -101,9 +114,13 @@
                     {
                         echo '<div class="col-md-8">';
                     }
-                    
+
                     echo '<div class="well"><table style="width:100%"><tr><td style="width: 30%;" rowspan="2">
-                    <img src="img/default_user.png" class="img-circle" height="55" width="55" alt="Avatar">';
+                    <img src="';
+
+                    echo $_SESSION["avatar_path"];
+
+                    echo '" class="img-circle" height="55" width="55" alt="Avatar">';
 
                     echo '<p style="margin-top: 15px;">';
                     echo $profileName.' '.$profileSurname;
@@ -112,19 +129,19 @@
                     echo '</td><td>';
                     echo $postText;
                     echo'<hr/></td></tr>';
-                    
+
                     echo '<tr>';
                     echo '<td style="width: 70%; text-align: right;"><small><i>';
-                
+
                     echo $postCreatedAt;
-                    
+
                     echo '</i></small></td></tr></table></div></div>';
-                    
+
                     $postNr += 1;
                 }
-            }   
+            }
         ?>
-          
+
       </div>
     </div>
   </body>

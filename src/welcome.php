@@ -44,12 +44,12 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="well">
-            <a href="profile.php">
+            <a href="profile.php?id=<?php echo $_SESSION["id"] ?>">
               <p>
                 <?php echo $_SESSION["name"]." ".$_SESSION["surname"]; ?>
               </p>
             </a>
-            <img src="img/default_user.png" class="img-circle" height="55" width="55" alt="Avatar">
+            <img src="<?php echo $_SESSION["avatar_path"]; ?>" class="img-circle" height="55" width="55" alt="Avatar">
           </div>
         </div>
         <!-- PROFILE SIDEBAR LEFT#END -->
@@ -66,49 +66,73 @@
                     <input type="submit" class="btn btn-primary" style="float: right; margin-top: 15px;" value="Post"></button>
                   </div>
                 </form>
-                  
-                  
+
+
             </div>
           </div>
           <!-- FULL WIDTH CENTER CONTAINER#END -->
           <hr>
         <?php
             // Prepare a select statement.
-            $sql = "SELECT id, user_id, post, created_at FROM user_posts";
-          
-            if ($stmt = mysqli_prepare($link, $sql)) 
+            $sql = "SELECT id, user_id, post, created_at FROM user_posts ORDER BY created_at DESC";
+
+            if ($stmt = mysqli_prepare($link, $sql))
             {
                 $stmt->execute();
-                $stmt->bind_result($id, $user_id, $post, $created_at);
-                
+                //$stmt->bind_result($id, $user_id, $post, $created_at);
+
+                $result = $stmt->get_result();
+
                 // Fetch the result variables.
-                while ($stmt->fetch()) 
+                while ($row = $result->fetch_assoc())
                 {
-                    $postId        = $id;
-                    $postUserId    = $user_id;
-                    $postText      = $post;
-                    $postCreatedAt = $created_at;
+                    //$postId        = $id;
+                    //$postUserId    = $user_id;
+                    //$postText      = $post;
+                    //$postCreatedAt = $created_at;
+                    $postId = $row["id"];
+                    $postUserId = $row["user_id"];
+                    $postText = $row["post"];
+                    $postCreatedAt = $row["created_at"];
+
+                    $userSql = "SELECT avatar_path FROM users WHERE id = ?";
+
+                    if ($userStmt = mysqli_prepare($link, $userSql))
+                    {
+                      mysqli_stmt_bind_param($userStmt, "i", $postUserId);
+                      $userStmt->execute();
+                      $userResult = $userStmt->get_result();
+
+                      while ($userRow = $userResult->fetch_assoc())
+                      {
+                        $userAvatarPath = $userRow["avatar_path"];
+                      }
+                    }
 
                     echo '<div class="row"><div class="col-sm-12">';
-                    
+
                     echo '<div class="well"><table style="width:100%"><tr><td style="width: 30%;" rowspan="2">
                     <a href="profile.php?id=';
                     echo $postUserId;
                     echo '">';
-                    echo '<img src="img/default_user.png" class="img-circle" height="55" width="55" alt="Avatar"></a>';
+                    echo '<img src="';
 
-                    echo '</td style="width: 70%"><td>';
+                    echo $userAvatarPath;
+
+                    echo '" class="img-circle" height="55" width="55" alt="Avatar"></a>';
+
+                    echo '</td><td style="width: 70%; text-align: left;">';
                     echo $postText;
                     echo'<hr/></td></tr>';
-                    
+
                     echo '<tr>';
                     echo '<td style="width: 70%; text-align: right;"><small><i>';
-                
+
                     echo $postCreatedAt;
-                    
+
                     echo '</i></small></td></tr></table></div></div></div>';
                 }
-            }   
+            }
         ?>
         </div>
 
