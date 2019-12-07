@@ -102,7 +102,7 @@
                         echo '<div class="col-md-8">';
                     }
                     
-                    echo '<div class="well"><table style="width:100%"><tr><td style="width: 30%;">
+                    echo '<div class="well"><table style="width:100%"><tr><td style="width: 30%;" rowspan="2">
                     <img src="img/default_user.png" class="img-circle" height="55" width="55" alt="Avatar">';
 
                     echo '<p style="margin-top: 15px;">';
@@ -113,7 +113,7 @@
                     echo $postText;
                     echo'<hr/></td></tr>';
                     
-                    echo '<tr><td></td>';
+                    echo '<tr>';
                     echo '<td style="width: 70%; text-align: right;"><small><i>';
                 
                     echo $postCreatedAt;

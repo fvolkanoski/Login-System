@@ -69,21 +69,45 @@
             </div>
           </div>
           <!-- FULL WIDTH CENTER CONTAINER#END -->
+          
+        <?php
+            // Prepare a select statement.
+            $sql = "SELECT id, user_id, post, created_at FROM user_posts";
+          
+            if ($stmt = mysqli_prepare($link, $sql)) 
+            {
+                $stmt->execute();
+                $stmt->bind_result($id, $user_id, $post, $created_at);
+                
+                // Fetch the result variables.
+                while ($stmt->fetch()) 
+                {
+                    $postId        = $id;
+                    $postUserId    = $user_id;
+                    $postText      = $post;
+                    $postCreatedAt = $created_at;
 
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="well">
-                <table style="width:100%">
-                  <tr>
-                    <td style="width: 30%;">
-                      <img src="img/default_user.png" class="img-circle" height="55" width="55" alt="Avatar">
-                    </td>
-                    <td>This is a post container.</td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
+                    echo '<div class="row"><div class="col-sm-12">';
+                    
+                    echo '<div class="well"><table style="width:100%"><tr><td style="width: 30%;" rowspan="2">
+                    <a href="profile.php?id=';
+                    echo $postUserId;
+                    echo '">';
+                    echo '<img src="img/default_user.png" class="img-circle" height="55" width="55" alt="Avatar"></a>';
+
+                    echo '</td style="width: 70%"><td>';
+                    echo $postText;
+                    echo'<hr/></td></tr>';
+                    
+                    echo '<tr>';
+                    echo '<td style="width: 70%; text-align: right;"><small><i>';
+                
+                    echo $postCreatedAt;
+                    
+                    echo '</i></small></td></tr></table></div></div></div>';
+                }
+            }   
+        ?>
         </div>
 
         <div class="col-sm-2 well">

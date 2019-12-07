@@ -59,27 +59,32 @@ if (isset($_GET['id']))
                 }
                 else
                 {
-                    $profileError = 'Error, profile not found.';
+                    header("location: index.php");
+                    exit;
                 }
             }
             else
             {
-                $profileError = 'Error, profile not found.';
+                header("location: index.php");
+                exit;
             }
         }
         else
         {
-            $profileError = 'Error, profile not found.';
+            header("location: index.php");
+            exit;
         }
     }
     else
     {
-        $profileError = 'Error, profile not found.';
+        header("location: index.php");
+        exit;
     }
 } 
 else 
 {
-    echo "404";
+    header("location: index.php");
+    exit;
 }
 
 ?>
