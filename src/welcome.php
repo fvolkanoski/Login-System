@@ -59,17 +59,19 @@
           <!-- FULL WIDTH CENTER CONTAINER -->
           <div class="row">
             <div class="col-sm-12">
-              <div class="panel panel-default text-left">
-                <div class="panel-body">
-                  <p>
-                    <center>full width container</center>
-                  </p>
-                </div>
-              </div>
+              <form action="welcome.php" method="post">
+                <form>
+                  <div class="form-group">
+                    <textarea class="form-control" placeholder="Post something..." rows="5" name="post_text"></textarea>
+                    <input type="submit" class="btn btn-primary" style="float: right; margin-top: 15px;" value="Post"></button>
+                  </div>
+                </form>
+                  
+                  
             </div>
           </div>
           <!-- FULL WIDTH CENTER CONTAINER#END -->
-          
+          <hr>
         <?php
             // Prepare a select statement.
             $sql = "SELECT id, user_id, post, created_at FROM user_posts";
