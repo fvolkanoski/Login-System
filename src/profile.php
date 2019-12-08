@@ -63,7 +63,7 @@
                 <?php echo $profileName.' '.$profileSurname; ?>
               </p>
             </a>
-            <img src="<?php echo $_SESSION["avatar_path"]; ?>" height="200" width="200" alt="Avatar">
+            <img src="<?php echo $userAvatarPath; ?>" height="200" width="200" alt="Avatar">
             <p style="margin-top: 15px;">Age:
               <?php echo $profileBirthday; // TODO: Calculate age. ?>
             </p>
@@ -118,7 +118,7 @@
                     echo '<div class="well"><table style="width:100%"><tr><td style="width: 30%;" rowspan="2">
                     <img src="';
 
-                    echo $_SESSION["avatar_path"];
+                    echo $userAvatarPath;
 
                     echo '" class="img-circle" height="55" width="55" alt="Avatar">';
 

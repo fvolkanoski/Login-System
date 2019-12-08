@@ -14,20 +14,20 @@ if(!isset($_SESSION["loggedin"]) && !$_SESSION["loggedin"])
     exit;
 }
 
-if (isset($_GET['id'])) 
+if (isset($_GET['id']))
 {
     // Transfer the id so we don't have to call $_GET every time we need it.
     $idReq = $_GET['id'];
     $profileError = '';
-    
+
     // Prepare a select statement.
     $sql = "SELECT id, name, surname, birthday, username, created_at FROM users WHERE id = ?";
-    
+
     if($stmt = mysqli_prepare($link, $sql))
     {
         // Bind variables to the prepared statement as parameters.
         mysqli_stmt_bind_param($stmt, "i", $idReq);
-        
+
         // Attempt to execute the prepared statement.
         if(mysqli_stmt_execute($stmt))
         {
@@ -47,15 +47,30 @@ if (isset($_GET['id']))
                     $profileId = $id;
                     $profileName = $name;
                     $profileSurname = $surname;
-                    
+
                     // Calculate age.
                     $date = new DateTime($birthday);
                     $now = new DateTime();
                     $interval = $now->diff($date);
-                    
+
                     $profileBirthday = $interval->y;
                     $profileUsername = $username;
                     $profileCreated = date('Y', strtotime($created_at));
+
+                    $avatarSql = "SELECT avatar_path FROM users WHERE id = ?";
+
+                    if ($avatarStmt = mysqli_prepare($link, $avatarSql))
+                    {
+                        mysqli_stmt_bind_param($avatarStmt, "i", $idReq);
+                        $avatarStmt->execute();
+                        $avatarResult = $avatarStmt->get_result();
+
+                        while ($avatarRow = $avatarResult->fetch_assoc())
+                        {
+                            $userAvatarPath = $avatarRow["avatar_path"];
+                        }
+                    }
+
                 }
                 else
                 {
@@ -80,8 +95,8 @@ if (isset($_GET['id']))
         header("location: index.php");
         exit;
     }
-} 
-else 
+}
+else
 {
     header("location: index.php");
     exit;
