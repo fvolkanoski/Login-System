@@ -5,7 +5,8 @@ CREATE TABLE `users` (
   `birthday` date NOT NULL,
   `username` varchar(50) COLLATE utf8_bin NOT NULL,
   `password` varchar(255) COLLATE utf8_bin NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp()
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `avatar_path` text COLLATE utf8_bin NOT NULL DEFAULT 'avatars/default.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
