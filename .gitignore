@@ -461,4 +461,3 @@ composer.lock
 *.sass.map
 *.scss.map
 .vs/
-src/avatars/
