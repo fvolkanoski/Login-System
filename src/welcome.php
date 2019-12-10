@@ -6,6 +6,7 @@
     </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style/welcome.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
@@ -37,6 +38,10 @@
               </a>
             </li>
             <li>
+              <a href="groups.php">Groups
+              </a>
+            </li>
+            <li>
               <a href="profile.php?id=<?php echo $_SESSION["id"]; ?>">My Profile
               </a>
             </li>
@@ -57,11 +62,19 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="well">
-            <center>left sidebar
+
+
+              <p>
+                <?php echo $_SESSION["name"].' '.$_SESSION["surname"]; ?>
+              </p>
+            </a>
+            <img src="<?php echo $_SESSION["avatar_path"]; ?>" height="128" width="128" alt="Avatar">
+          <hr />
+            <center>
+                My groups will appear here.
             </center>
           </div>
         </div>
-        <!-- PROFILE SIDEBAR LEFT#END -->
 
         <div class="col-sm-7">
           <div class="row">
@@ -69,8 +82,7 @@
               <form action="welcome.php" method="post">
                 <form>
                   <div class="form-group">
-                    <textarea class="form-control" placeholder="Post something..." rows="5" name="post_text">
-                    </textarea>
+                    <textarea class="form-control" placeholder="Post something..." rows="5" name="post_text"></textarea>
                     <input type="submit" class="btn btn-primary" style="float: right; margin-top: 15px;" value="Post">
                     </button>
                   </div>
@@ -125,7 +137,7 @@
 
         </div>
         <div class="col-sm-2 well">
-          right sidebar
+          My group news will appear here.
         </div>
       </div>
     </div>
