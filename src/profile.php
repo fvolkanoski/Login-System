@@ -41,7 +41,7 @@
               <a href="groups.php">Groups
               </a>
             </li>
-            <li class="active">
+            <li <?php if($idReq == $_SESSION["id"]) echo 'class="active"'; ?> >
               <a href="profile.php?id=<?php echo $_SESSION["id"]; ?>">My Profile
               </a>
             </li>
