@@ -1,6 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body
+{
+  background: #f67280; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#f67280, #6c5b7b); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#f67280, #6c5b7b); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#f67280, #6c5b7b); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#f67280, #6c5b7b); /* Standard syntax */
+}
+
+.white-color
+{
+  color: white;
+}
+
 .login_wrapper
 {
-    font: 14px sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10pt;
     width: 350px;
     padding: 20px;
     margin: 0;
@@ -10,7 +34,35 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-span.login_error
+
+.login_error
 {
   color: red;
 }
+
+a
+{
+  text-decoration: none;
+}
+
+a:link {
+  color: #7dc9e7;
+  
+}
+
+/* visited link */
+a:visited {
+  color: #7dc9e7;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+  text-decoration: none;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+

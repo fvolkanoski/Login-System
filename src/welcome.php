@@ -28,7 +28,7 @@
             <span class="icon-bar">
             </span>
           </button>
-          <a class="navbar-brand" href="index.php" style="font-family: 'Lobster', cursive;">Login System
+          <a class="navbar-brand" href="index.php" style="font-family: 'Lobster', cursive; color: #ffffff;">Shelf Social
           </a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">

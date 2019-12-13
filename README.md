@@ -10,7 +10,7 @@ ShelfSocial is a simple social network website built entirely in PHP, it uses My
 - PHP (7.0+)
 - MySQL (5.6+)
 ## Installation
-- Create a database login_system for the storage and create the tables using the scripts located in the `db` folder.
+- Create a database shelf_social for the storage and create the tables using the scripts located in the `db` folder.
 - Configure your parameters in the `src/cfg/config.php` file for the database and you are ready to go.
 ## Version
 Current version is 1.0. Once new versions start coming up a changelog will be created.

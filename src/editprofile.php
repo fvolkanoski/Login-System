@@ -26,13 +26,17 @@
                <span class="icon-bar">
                </span>
                </button>
-               <a class="navbar-brand" href="index.php" style="font-family: 'Lobster', cursive;">Login System
+               <a class="navbar-brand" href="index.php" style="font-family: 'Lobster', cursive; color: #ffffff;">Shelf Social
                </a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                <ul class="nav navbar-nav">
                   <li>
                      <a href="index.php">Home
+                     </a>
+                  </li>
+                  <li>
+                     <a href="groups.php">Groups
                      </a>
                   </li>
                   <li class="active">
