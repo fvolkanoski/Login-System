@@ -1,7 +1,8 @@
 <p align="center">
   <img src="https://i.ibb.co/RbJKCC3/logo.png">
 </p>
-#
+
+# 
 ShelfSocial is a simple social network website built entirely in PHP, it uses MySQL for storage and Bootstrap for the front end. This is made to be a like-a template website that you can build upon to create anything you need that would require registering of users, posts, groups and other similar features.
 
 # Getting Started
