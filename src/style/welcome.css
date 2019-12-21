@@ -1,12 +1,80 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
-html {
-    height: 100%;
-    width: 100%;
-}
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
 
 body
 {
-    font-family: 'Roboto', sans-serif;
-    background: #fcfcfc; /* For browsers that do not support gradients */
+    background: #fcfcfc;
+}
+
+.profilepic-dropdown
+{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	margin-right: 7px;
+}
+
+.navbar-custom
+{
+	font-family: 'Roboto', sans-serif;
+	font-size: 10pt;
+	height: 50px;
+}
+
+.vl {
+  border-left: 1px solid green;
+	padding: 0px;
+	margin: 0px;
+}
+
+.navbar-custom-brand
+{
+	font-family: 'Lobster', cursive;
+	font-size: 14pt;
+}
+
+.dropdown-menuitem-custom
+{
+	font-size: 12pt;
+}
+
+.poster-avatar
+{
+	border-radius: 50%;
+	height: 55px;
+	width: 55px;
+	border: 2px solid #EDEDED;
+	padding: 2px;
+}
+
+.post-first-row
+{
+	
+	padding: 5px;
+}
+
+.post-second-row
+{
+	padding: 15px;
+}
+
+.post-main-container
+{
+	border-radius: 3px;
+	padding-top: 10px;
+	margin-bottom: 30px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.post-poster
+{
+	font-family: 'Roboto', sans-serif;
+	font-size: 10pt;
+	color: #717171;
+}
+
+.post-posted-at
+{
+	font-size: 8pt;
+	color: #D7D7D7;
 }
