@@ -68,6 +68,20 @@
 <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- /LEFT SIDEBAR -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
 					
 <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- CENTER CONTENT -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+        <div class="col-sm-7">
+          <div class="row">
+            <div class="col-sm-12">
+              <form action="welcome.php" method="post">
+                <form>
+                  <div class="form-group">
+                    <textarea class="form-control" placeholder="Post something..." rows="5" name="post_text"></textarea>
+                    <input type="submit" class="btn btn-primary" style="float: right; margin-top: 15px;" value="Post">
+                    </button>
+                  </div>
+              </form>
+            </div>
+          </div>
+
 <div class="col-sm-6">
 	<?php
      	// Prepare a select statement.
