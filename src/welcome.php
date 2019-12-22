@@ -42,7 +42,7 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="profile.php?id=<?php echo $_SESSION["id"]; ?>" style="font-size: 12px;">My Profile</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" style="font-size: 12px;">Log out</a>
+                        <a class="dropdown-item" href="logout.php" style="font-size: 12px;">Log out</a>
                     </div>
                 </li>
             </ul>
@@ -55,7 +55,8 @@
   			<div class="row">
 		
 <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- LEFT SIDEBAR -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
-					<div class="col-sm-3">
+					<div class="col-sm-3" style="margin-bottom: 15px;">
+							<center>
 							<div class="card" style="width: 14em;">
 									<img src="<?php echo $_SESSION["avatar_path"]; ?>" class="card-img-top" alt="avatar" width="50%" height="50%">
 									<div class="card-body">
@@ -64,25 +65,28 @@
 											</p>
 									</div>
 							</div>
+							</center>
 					</div>
 <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- /LEFT SIDEBAR -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
 					
 <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- CENTER CONTENT -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
-        <div class="col-sm-7">
-          <div class="row">
-            <div class="col-sm-12">
-              <form action="welcome.php" method="post">
-                <form>
-                  <div class="form-group">
-                    <textarea class="form-control" placeholder="Post something..." rows="5" name="post_text"></textarea>
-                    <input type="submit" class="btn btn-primary" style="float: right; margin-top: 15px;" value="Post">
-                    </button>
-                  </div>
-              </form>
-            </div>
-          </div>
 
 <div class="col-sm-6">
+
+	<div class="row ">
+		<div class="col-sm-12">
+			<div class="post-something-container">
+				<form action="welcome.php" method="post">
+					<form>
+						<div class="form-group">
+							<textarea class="form-control" placeholder="Post something..." rows="4" name="post_text"></textarea>
+							<input type="submit" class="btn btn-primary" style="margin-top: 15px;" value="Post">
+						</div>
+					</form>
+			</div>
+		</div>
+	</div>
+
 	<?php
      	// Prepare a select statement.
      	$sql = "SELECT id, user_id, post, created_at FROM user_posts ORDER BY created_at DESC";
@@ -111,8 +115,7 @@
      	                $userAvatarPath = $userRow["avatar_path"];
      	            }
      	        } ?>
-	
-	
+
 		<div class="container post-main-container">
 				<div class="row post-first-row">
 						<div class="col-sm-2">
@@ -138,21 +141,39 @@
 			}
 	?>
 	
-	
-	
-	
 
 </div>
 <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- /CENTER CONTENT -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
 					
-
+<!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- RIGHT SIDEBAR -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
     <div class="col-sm-3">
-      One of three columns
-    </div>
-
-					
-			  </div>
+		<center>
+		<div class="card" style="width: 14em;">
+			<img src="https://via.placeholder.com/250" class="card-img-top" alt="ad1" width="50%" height="50%">
+			<div class="card-body">
+				<center>
+				<h5 class="card-title">AD: 250x250</h5>
+				<p class="card-text">
+					This is an ad.
+				</p>
+				</center>
 			</div>
 		</div>
+		<p> <!-- EMPTY CONTENT --> </p>
+		<div class="card" style="width: 14em;">
+			<img src="https://via.placeholder.com/250" class="card-img-top" alt="ad1" width="50%" height="50%">
+			<div class="card-body">
+				<center>
+				<h5 class="card-title">AD: 250x250</h5>
+				<p class="card-text">
+					This is an ad.
+				</p>
+				</center>
+			</div>
+		</div>
+		</center>
+	</div>
+<!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- /RIGHT SIDEBAR -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+
   </body>
 </html>
