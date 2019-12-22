@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
 
+body
+{
+    background: #fcfcfc;
+}
+
 .profilepic-dropdown
 {
 	width: 30px;
@@ -14,12 +19,6 @@
 	font-family: 'Roboto', sans-serif;
 	font-size: 10pt;
 	height: 50px;
-}
-
-.vl {
-  border-left: 1px solid green;
-	padding: 0px;
-	margin: 0px;
 }
 
 .navbar-custom-brand
