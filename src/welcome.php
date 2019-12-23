@@ -55,10 +55,10 @@
 
 		<div style="margin-top: 50px;">
 			<div class="container">
-  			<div class="row">
+  			<div class="row justify-content-md-center">
 		
 <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- LEFT SIDEBAR -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
-					<div class="col-sm-3" style="margin-bottom: 15px;">
+					<div class="col-md-auto" style="margin-bottom: 15px;">
 							<center>
 							<div class="card" style="width: 14em;">
 									<img src="<?php echo $_SESSION["avatar_path"]; ?>" class="card-img-top" alt="avatar" width="50%" height="50%">
@@ -73,11 +73,10 @@
 <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- /LEFT SIDEBAR -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
 					
 <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- CENTER CONTENT -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
-
-<div class="col-sm-6">
-
-	<div class="row ">
-		<div class="col-sm-12">
+<div class="col">
+<table style="width: 100%;">
+	<tr>
+		<td>
 			<div class="post-something-container">
 				<form action="welcome.php" method="post">
 					<form>
@@ -87,8 +86,8 @@
 						</div>
 					</form>
 			</div>
-		</div>
-	</div>
+		</td>
+	</tr>
 
 	<?php
      	// Prepare a select statement.
@@ -119,37 +118,48 @@
      	            }
      	        } ?>
 
-		<div class="container post-main-container">
-				<div class="row post-first-row">
-						<div class="col-sm-2">
-								<a href="profile.php?id=<?php echo $postUserId; ?>"><img src="<?php echo $userAvatarPath ?>" alt="poster-avatar" class="poster-avatar"></a>
-						</div>
-						<div class="col-sm-7 post-poster">
-								<?php echo $postUserName . ' ' . $postUserSurname; ?>
-										<br>
-										<span class="post-posted-at"><?php echo $postCreatedAt ?></span>
-						</div>
-						<div class="col-sm-3">
-								<span style="float: right;">...</span>
-						</div>
-				</div>
-				<div class="row post-second-row">
-						<?php echo $postText; ?>
-				</div>
-		</div>
-	
-	
+	<tr>
+		<td>
+			<div class="post-main-container">
+				<table>
+					<tr>
+						<td width="10%">
+							<a href="profile.php?id=<?php echo $postUserId; ?>">
+								<img src="<?php echo $userAvatarPath ?>" alt="poster-avatar" class="poster-avatar">
+							</a>
+						</td>
+						<td width="90%" class="poster-container">
+							<span class="post-poster"> <?php echo $postUserName . ' ' . $postUserSurname; ?> </span>
+							<br>
+							<span class="post-posted-at"> <?php echo $postCreatedAt ?> </span>
+						</td>
+					</tr>
+
+					<tr>
+						<td colspan="2">
+							<div class="post-content-container">
+								<?php echo $postText; ?>
+							</div>
+						</td>
+					</tr>
+
+				</table>
+			</div>
+
+		</td>
+	</tr>
+
 	<?php
 					}
 			}
 	?>
 	
-
+	</table>
 </div>
 <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- /CENTER CONTENT -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
 					
 <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- RIGHT SIDEBAR -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
-    <div class="col-sm-3">
+    <div class="col-md-auto">
 		<center>
 		<div class="card" style="width: 14em;">
 			<img src="https://via.placeholder.com/250" class="card-img-top" alt="ad1" width="50%" height="50%">

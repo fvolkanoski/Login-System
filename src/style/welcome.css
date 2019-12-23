@@ -7,22 +7,13 @@
 	padding: 2px;
 }
 
-.post-first-row
-{
-	padding: 5px;
-}
-
-.post-second-row
-{
-	padding: 15px;
-}
-
 .post-main-container
 {
 	border-radius: 3px;
-	padding-top: 10px;
-	margin-bottom: 20px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	width: 100%;
+	margin-bottom: 20px;
+	padding: 10px;
 }
 
 .post-something-container
@@ -34,10 +25,16 @@
 	border-radius: 3px;
 }
 
-.btn, .btn-primary, .form-control
+.poster-container
+{
+	padding-left: 10px;
+}
+
+.post-content-container
 {
 	font-family: 'Roboto', sans-serif;
-	font-size: 10pt;
+	font-size: 11pt;
+	padding: 10px;
 }
 
 .post-poster
@@ -49,6 +46,13 @@
 
 .post-posted-at
 {
+	font-family: 'Roboto', sans-serif;
 	font-size: 8pt;
 	color: #D7D7D7;
+}
+
+.btn, .btn-primary, .form-control
+{
+	font-family: 'Roboto', sans-serif;
+	font-size: 10pt;
 }
