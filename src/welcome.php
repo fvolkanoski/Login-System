@@ -186,6 +186,65 @@
 		</div>
 		</center>
 	</div>
+</div>
 <!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- /RIGHT SIDEBAR -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+
+<hr>
+
+<!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- FOOTER -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
+<center>
+    <table width="80%">
+        <tr>
+            <td>
+                <center>
+                    <h6>
+						Website Copyright
+					</h6>
+                <center>
+            </td>
+            <td>
+                <center>
+                    <h6>
+						Some Links
+					</h6>
+                <center>
+            </td>
+            <td>
+                <center>
+                    <h6>
+						About the website
+					</h6>
+                <center>
+            </td>
+		</tr>
+        <tr>
+            <td style="padding: 10px;" width="33%">
+                <center>
+                    &copy Website 2019 The copyright, maybe some legal notice or something goes here...
+                <center>
+            </td>
+            <td style="padding: 10px;" width="33%">
+                <center>
+                    <a href="#">Link 1</a>
+                    <br>
+                    <a href="#">Link 2</a>
+                    <br>
+                    <a href="#">Link 3</a>
+                    <br>
+                    <a href="#">Link 4</a>
+                <center>
+            </td>
+            <td style="padding: 10px;" width="33%">
+                <center>
+					Some text that you might like here. 
+					Some text that you might like here. 
+					Some text that you might like here. 
+					Some text that you might like here.
+                <center>
+            </td>
+		</tr>
+    </table>
+    </center>
+<!-- -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- /FOOTER -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
 </body>
 </html>
